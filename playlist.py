@@ -24,7 +24,7 @@ class Song(object):
 
 class Playlist(object):
     csvfile = 'playlist.csv'
-    header = [['id', 'name', 'artist', 'played']]
+    header = ['id', 'name', 'artist', 'played']
 
     def __init__(self):
         self.songs = self.load_songs()
@@ -63,10 +63,11 @@ class Playlist(object):
         else:
             self.songs.sort(key=lambda x: x.song_id)
         print [song.replays for song in self.songs]
-        raw_songs = [
+        lines = [
             [x.song_id, x.name, x.artist, x.replays] for x in self.songs
         ]
-        write_data(self.csvfile, self.header + raw_songs)
+        lines.insert(0, self.header)
+        write_data(self.csvfile, lines)
 
 
 if __name__ == '__main__':
