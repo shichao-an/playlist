@@ -38,7 +38,6 @@ class Playlist(object):
             song_id = int(raw_song[0])
             name = raw_song[1]
             artist = raw_song[2]
-            replays = raw_song[3]
             replays = int(raw_song[3])
             song = Song(song_id, name, artist, replays)
             songs.append(song)
