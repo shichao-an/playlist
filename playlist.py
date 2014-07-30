@@ -74,7 +74,7 @@ if __name__ == '__main__':
     print 'Add a new song'
     name = raw_input('Name: ').strip()
     artist = raw_input('Artist: ').strip()
-    replays = raw_input('Replays: ').strip()
+    replays = raw_input('Played: ').strip()
     replays = int(replays)
     playlist = Playlist()
     playlist.add_song(name, artist, replays)
