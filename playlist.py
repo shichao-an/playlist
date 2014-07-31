@@ -29,6 +29,7 @@ class Playlist(object):
     def __init__(self):
         self.songs = self.load_songs()
         self.dict_songs = {s.song_id: s for s in self.songs}
+        self.uniq_songs = {(s.name, s.artist): s for s in self.songs}
 
     def load_songs(self):
         songs = []
@@ -44,6 +45,9 @@ class Playlist(object):
         return songs
 
     def add_song(self, name, artist, replays=0):
+        if (name, artist) in self.uniq_songs:
+            print 'This song already exists. Abort.'
+            return
         if not self.songs:
             song_id = 1
         else:
