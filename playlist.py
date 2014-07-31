@@ -62,7 +62,8 @@ class Playlist(object):
             self.songs.sort(key=lambda x: x.replays, reverse=True)
         else:
             self.songs.sort(key=lambda x: x.song_id)
-        print [song.replays for song in self.songs]
+        #print [song.replays for song in self.songs]
+        print '%d songs in total.' % len(self.songs)
         lines = [
             [x.song_id, x.name, x.artist, x.replays] for x in self.songs
         ]
